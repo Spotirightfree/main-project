@@ -17,6 +17,7 @@ bin
 obj
 bin/
 obj/
+
 **TestResults/*
 TestResults/
 TestResults

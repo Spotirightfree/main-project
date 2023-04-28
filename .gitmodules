@@ -4,3 +4,6 @@
 [submodule "login-service"]
 	path = login-service
 	url = https://github.com/Spotirightfree/login-service.git
+[submodule "playlist-service"]
+	path = playlist-service
+	url = https://github.com/Spotirightfree/playlist-service.git

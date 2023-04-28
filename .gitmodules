@@ -1,3 +1,6 @@
 [submodule "music-service"]
 	path = music-service
 	url = https://github.com/Spotirightfree/music-service.git
+[submodule "login-service"]
+	path = login-service
+	url = https://github.com/Spotirightfree/login-service.git

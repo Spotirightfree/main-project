@@ -1,0 +1,49 @@
+version: '3.4'
+
+networks:
+  spotinet:
+    external: false
+    name: spotinet
+services:
+  login-service:
+    container_name: login-service
+    image: ${DOCKER_REGISTRY-}loginservice
+    build:
+      context: .
+      dockerfile: login-service/login-service/Dockerfile
+    environment:
+        ASPNETCORE_ENVIRONMENT: Development
+    ports:
+    - "5193:5193"
+    networks:
+    - spotinet
+  music-service:
+    container_name: music-service
+    image: ${DOCKER_REGISTRY-}musicservice
+    build:
+        context: .
+        dockerfile: music-service/music-service/Dockerfile
+    ports:
+    - "5088:5088"
+    networks:
+    - spotinet
+  playlist-service:
+    container_name: playlist-service
+    image: ${DOCKER_REGISTRY-}playlistservice
+    build:
+        context: .
+        dockerfile: playlist-service/playlist-service/Dockerfile
+    ports:
+    - "5049:5049"
+    networks:
+    - spotinet
+  spotirightfree-ocelot-gateway:
+    container_name: spotirightfree-ocelot-gateway
+    image: ${DOCKER_REGISTRY-}spotirightfreeocelotgateway
+    build:
+        context: .
+        dockerfile: spotirightfree-ocelot-gateway/Dockerfile
+    ports:
+    - "5184:5184"
+    networks:
+    - spotinet

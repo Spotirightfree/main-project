@@ -1,0 +1,14 @@
+{
+  "profiles": {
+    "Docker Compose": {
+      "commandName": "DockerCompose",
+      "commandVersion": "1.0",
+      "serviceActions": {
+        "login-service": "StartDebugging",
+        "music-service": "StartDebugging",
+        "playlist-service": "StartDebugging",
+        "spotirightfree-ocelot-gateway": "StartDebugging"
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+services:
+  music-service:
+    build:
+      context: C:\Users\billy\source\repos\spotirightfree
+      dockerfile: music-service/music-service/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: https://+:443;http://+:5088
+    image: musicservice
+    ports:
+    - target: 80
+    - target: 443
+    volumes:
+    - C:\Users\billy\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+    - C:\Users\billy\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+version: '3.4'

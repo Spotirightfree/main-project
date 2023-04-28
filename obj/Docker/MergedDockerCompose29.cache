@@ -1,0 +1,33 @@
+services:
+  login-service:
+    build:
+      context: C:\Users\billy\source\repos\spotirightfree
+      dockerfile: login-service/login-service/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: https://+:7156;http://+:5193
+    image: loginservice
+    ports:
+    - published: 5193
+      target: 5193
+    - target: 5193
+    - target: 7156
+    volumes:
+    - C:\Users\billy\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+    - C:\Users\billy\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+  music-service:
+    build:
+      context: C:\Users\billy\source\repos\spotirightfree
+      dockerfile: music-service/music-service/Dockerfile
+    image: musicservice
+  playlist-service:
+    build:
+      context: C:\Users\billy\source\repos\spotirightfree
+      dockerfile: playlist-service/playlist-service/Dockerfile
+    image: playlistservice
+  spotirightfree-ocelot-gateway:
+    build:
+      context: C:\Users\billy\source\repos\spotirightfree
+      dockerfile: spotirightfree-ocelot-gateway/Dockerfile
+    image: spotirightfreeocelotgateway
+version: '3.4'

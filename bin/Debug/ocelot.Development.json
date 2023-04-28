@@ -1,0 +1,41 @@
+{
+  "Routes": [
+      {
+        "DownstreamPathTemplate": "/WeatherForecast/Hello_World",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "music-service",
+            "Port": 5088
+          }
+        ],
+        "UpstreamPathTemplate": "/music-service/HelloWorld",
+        "UpstreamHttpMethod": [ "Get" ]
+      },
+      {
+        "DownstreamPathTemplate": "/WeatherForecast/Hello_World",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "playlist-service",
+            "Port": 5049
+          }
+        ],
+        "UpstreamPathTemplate": "/playlist-service/HelloWorld",
+        "UpstreamHttpMethod": [ "Get" ]
+      },
+      {
+        "DownstreamPathTemplate": "/WeatherForecast/Hello_World",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "login-service",
+            "Port": 5193
+          }
+        ],
+        "UpstreamPathTemplate": "/login-service/HelloWorld",
+        "UpstreamHttpMethod": [ "Get" ]
+      }
+  ],
+  "GlobalConfiguration": {}
+}

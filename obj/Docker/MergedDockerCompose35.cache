@@ -1,0 +1,110 @@
+services:
+  login-service:
+    build:
+      context: C:\Users\billy\source\repos\spotirightfree
+      dockerfile: login-service/login-service/Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: login-service
+    container_name: login-service
+    entrypoint: tail -f /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: https://+:7156;http://+:5193
+    image: loginservice
+    labels:
+      com.microsoft.visual-studio.project-name: login-service
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages
+        --additionalProbingPath /root/.nuget/fallbackpackages  "/app/login-service.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
+        dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    ports:
+    - published: 5193
+      target: 5193
+    - target: 5193
+    - target: 7156
+    tty: true
+    volumes:
+    - C:\Users\billy\vsdbg\vs2017u5:/remote_debugger:rw
+    - C:\Users\billy\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+    - C:\Users\billy\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+  music-service:
+    build:
+      context: C:\Users\billy\source\repos\spotirightfree
+      dockerfile: music-service/music-service/Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: music-service
+    container_name: music-service_1
+    entrypoint: tail -f /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: https://+:7061;http://+:5088
+    image: musicservice
+    labels:
+      com.microsoft.visual-studio.project-name: music-service
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages
+        --additionalProbingPath /root/.nuget/fallbackpackages  "/app/music-service.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
+        dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    ports:
+    - published: 5088
+      target: 5088
+    - target: 5088
+    - target: 7061
+    tty: true
+    volumes:
+    - C:\Users\billy\vsdbg\vs2017u5:/remote_debugger:rw
+    - C:\Users\billy\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+    - C:\Users\billy\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+  playlist-service:
+    build:
+      context: C:\Users\billy\source\repos\spotirightfree
+      dockerfile: playlist-service/playlist-service/Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: playlist-service
+    container_name: playlist-service
+    entrypoint: tail -f /dev/null
+    image: playlistservice
+    labels:
+      com.microsoft.visual-studio.project-name: playlist-service
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages
+        --additionalProbingPath /root/.nuget/fallbackpackages  "/app/playlist-service.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
+        dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    tty: true
+    volumes:
+    - C:\Users\billy\vsdbg\vs2017u5:/remote_debugger:rw
+    - C:\Users\billy\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+    - C:\Users\billy\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+  spotirightfree-ocelot-gateway:
+    build:
+      context: C:\Users\billy\source\repos\spotirightfree
+      dockerfile: spotirightfree-ocelot-gateway/Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: spotirightfree-ocelot-gateway
+    container_name: spotirightfree-ocelot-gateway
+    entrypoint: tail -f /dev/null
+    image: spotirightfreeocelotgateway
+    labels:
+      com.microsoft.visual-studio.project-name: spotirightfree-ocelot-gateway
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages
+        --additionalProbingPath /root/.nuget/fallbackpackages  "/app/spotirightfree-ocelot-gateway.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
+        dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    tty: true
+    volumes:
+    - C:\Users\billy\vsdbg\vs2017u5:/remote_debugger:rw
+    - C:\Users\billy\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+    - C:\Users\billy\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+version: '3.4'

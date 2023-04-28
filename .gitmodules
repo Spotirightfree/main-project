@@ -7,3 +7,6 @@
 [submodule "playlist-service"]
 	path = playlist-service
 	url = https://github.com/Spotirightfree/playlist-service.git
+[submodule "spotirightfree-ocelot-gateway"]
+	path = spotirightfree-ocelot-gateway
+	url = https://github.com/Spotirightfree/ocelot-gateway.git
